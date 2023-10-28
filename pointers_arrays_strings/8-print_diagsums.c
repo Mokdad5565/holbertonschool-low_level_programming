@@ -1,34 +1,26 @@
-/*
- * File: 8-print_diagsums.c
- * Auth: Brennan D Baraban
- */
-
-#include "holberton.h"
-#include <stdio.h>
-
+#include<stdio.h>
+#include"main.h"
 /**
- * print_diagsums - Prints the sum of the two diagonals
- *                  of a square matrix of integers.
- * @a: The matrix of integers.
- * @size: The size of the matrix.
- */
+*print_diagsums - function add diag
+*@a: variable pointer
+*@size: variable
+*/
 void print_diagsums(int *a, int size)
 {
-	int index, sum1 = 0, sum2 = 0;
+	int i;
+	int j;
+	int result = 0;
+	int result2 = 0;
+	int lp;
 
-	for (index = 0; index < size; index++)
+	for (i = 0; i < size; i++)
 	{
-		sum1 += a[index];
-		a += size;
+		result += a[i * (size + 1)];
 	}
-
-	a -= size;
-
-	for (index = 0; index < size; index++)
+	for (j = 0; j < size; j++)
 	{
-		sum2 += a[index];
-		a -= size;
+		lp = (size - j) - 1;
+		result2 += a[(j * size) + (lp)];
 	}
-
-	printf("%d, %d\n", sum1, sum2);
+	printf("%d, %d\n", result, result2);
 }

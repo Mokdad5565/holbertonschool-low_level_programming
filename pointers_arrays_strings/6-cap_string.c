@@ -1,32 +1,34 @@
-#include "holberton.h"
-#include <stdio.h>
-
+#include<stdio.h>
+#include"main.h"
 /**
-  * cap_string - ...
-  * @s: ...
-  *
-  * Return: char value
-  */
-char *cap_string(char *s)
+**cap_string - function show the first letter in uppercase
+*@c: variable
+*Return: char
+*/
+char *cap_string(char *c)
 {
-	int a = 0, i;
-	int cspc = 13;
-	char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
+	int i = 0;
+	int j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-	while (s[a])
+	if (c[0] >= 97 && c[0] <= 122)
 	{
-		i = 0;
-
-		while (i < cspc)
-		{
-			if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
-				s[a] -= 32;
-
-			i++;
-		}
-
-		a++;
+		c[0] -= 32;
 	}
-
-	return (s);
+	while (c[i] != '\0')
+	{
+		if (c[i + 1] >= 97 && c[i + 1] <= 122)
+		{
+			for (j = 0; a[j] != '\0'; j++)
+			{
+				if (a[j] == c[i])
+				{
+					c[i + 1] -= 32;
+					break;
+				}
+			}
+		}
+		i++;
+	}
+	return (c);
 }

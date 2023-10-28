@@ -1,44 +1,34 @@
-/*
- * File: 5-strstr.c
- * Auth: Brennan D Baraban
- */
-
-#include "holberton.h"
-
+#include<stdio.h>
+#include"main.h"
 /**
- * _strstr - Locates a substring.
- * @haystack: The string to be searched.
- * @needle: The substring to be located.
- *
- * Return: If the substring is located - a pointer to the beginning
- *                                       of the located substring.
- *         If the substring is not located - NULL.
- */
-
+**_strstr - funciton locate a substring
+*@haystack: variable pointer
+*@needle: variable pointer
+*Return: char
+*/
 char *_strstr(char *haystack, char *needle)
 {
-	int index;
+	int i;
 
 	if (*needle == 0)
+	{
 		return (haystack);
-
+	}
 	while (*haystack)
 	{
-		index = 0;
-
-		if (haystack[index] == needle[index])
+		i = 0;
+		if (haystack[i] == needle[i])
 		{
 			do {
-				if (needle[index + 1] == '\0')
+				if (needle[i + 1] == '\0')
+				{
 					return (haystack);
-
-				index++;
-
-			} while (haystack[index] == needle[index]);
-		}
-
+				}
+					i++;
+				} while (haystack[i] == needle[i]);
+			}
 		haystack++;
-	}
-
+		}
 	return ('\0');
 }
+
